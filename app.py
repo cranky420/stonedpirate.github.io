@@ -16,6 +16,8 @@ def play():
         result = "Too low! Try again."
     elif guess > secret_number:
         result = "Too high! Try again."
+    elif guess == 69:
+        result = "Hurray!! you hit the JACKPOT"
     else:
         result = f"Congratulations! You guessed the number {secret_number}!"
     return render_template('result.html', result=result)
