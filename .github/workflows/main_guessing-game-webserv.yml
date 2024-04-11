@@ -73,6 +73,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'guessing-game-webserv'
+          app-name: 'python-app'
           slot-name: 'Production'
           
