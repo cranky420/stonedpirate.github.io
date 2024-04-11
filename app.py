@@ -12,14 +12,14 @@ def index():
 def play():
     secret_number = random.randint(1, 100)
     guess = int(request.form['guess'])
-    if guess < secret_number:
+    if guess == 69:  # Check if the guessed number is 69
+        result = "Cheater! You used the cheat code! Congratulations!"
+    elif guess < secret_number:
         result = "Too low! Try again."
     elif guess > secret_number:
         result = "Too high! Try again."
-    elif guess == 69:
-        result = "Hurray!! you hit the JACKPOT"
     else:
-        result = f"Congratulations! You guessed the number {secret_number}!"
+        result = f"Congratulations! You're a true Genius, you guessed the seceret number {secret_number}!"
     return render_template('result.html', result=result)
 
 if __name__ == '__main__':
