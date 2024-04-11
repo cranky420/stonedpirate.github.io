@@ -63,6 +63,7 @@
 <body>
     <h1>Aazma Luck Aazma</h1>
     <p>I'm thinking of a number between 1 and 100. If you guess it correct? A carat of Beer on me!</p>
+    <p>Number of Visits: {{ visits_count }}</p>
     <img src="pexels-photo-5538225.jpg" alt="Chilled" style="max-width: 100%; height: auto;">
     <form name="guessForm" action="/play" method="post" onsubmit="return validateForm()">
         <input type="number" name="guess" min="1" max="100">
