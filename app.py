@@ -21,7 +21,7 @@ def index():
 def questions():
     global visits_count
     visits_count += 1
-    return render_template('index.html', visits_count=visits_count)
+    return render_template('response.html', visits_count=visits_count)
 
 @app.route('/play', methods=['POST', 'GET'])
 def play():
@@ -37,7 +37,7 @@ def play():
                 'love': "Great choice! Love is indeed important, but isn't there more to life?",
                 'money': "Money can buy many things, but is everything buyable?",
                 'adventure': "Adventure can bring excitement and fulfillment, but is it the essence of life?",
-                'sex': "Physical intimacy is a part of life, but is it the ultimate purpose?",
+                'sex': "Dear Lusty friend. Physical intimacy is a part of life, but is it the ultimate purpose?",
                 'dreams': "Dreams inspire us to strive for more, but are they the reality of life?",
                 'sleep': "Sleep is essential for rest and rejuvenation, but is life just about sleeping?"
             }
@@ -48,13 +48,14 @@ def play():
             secret_number = str(random.randint(1, 100))
 
             # Render the response page with the response
-            return render_template('response.html', response=response, visits_count=visits_count)
+            return render_template('index.html', response=response, visits_count=visits_count)
         else:
             # Invalid choice, redirect to questions page
             return redirect('/questions')
     else:
         # Redirect to the questions page if it's not a POST request
         return redirect('/questions')
+
 
 @app.route('/guess', methods=['POST'])
 def guess():
@@ -80,11 +81,11 @@ def guess():
     if guess == 69:
         result = f"Bloody Cheater! didn't you knew the cheatcode?"
     elif guess == int(secret_number):
-        result = f"Congratulations! You guessed the secret number {secret_number}!"
+        result = f"You're the Chosen One. Congratulations! You guessed the secret number. {secret_number}!"
     elif guess < int(secret_number):
-        result = "Too low! Try again."
+        result = "Soryy to say this, but you're fucking unlucky! Wanna try again?."
     else:
-        result = "Too high! Try again."
+        result = "Fuck is Fuck. There's nothing as more Fuck or less Fuck! Wanna try again?."
 
     # Render the result page
     return render_template('result.html', result=result, visits_count=visits_count)

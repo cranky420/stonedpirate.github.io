@@ -3,84 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Response</title>
+    <title>Please Enter a Choice</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #333; /* Dark background color */
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Dark background */
             color: #fff; /* Text color */
-            text-align: center;
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            height: 100vh;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .banner {
+            background-color: #ff0000; /* Red banner */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
         }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+        .button-container {
+            margin-top: 20px;
         }
-        label {
-            display: block;
-            color: #ccc; /* Label text color */
-            margin-bottom: 10px;
-        }
-        input[type="number"] {
-            padding: 10px;
-            font-size: 1.2rem;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            background-color: #444; /* Input background color */
-            color: #fff; /* Input text color */
-        }
-        button {
+        .back-button {
             padding: 10px 20px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            text-decoration: none;
         }
-        button:hover {
+        .back-button:hover {
             background-color: #0056b3;
         }
         img {
-            max-width: 100%; /* Ensure the image fits within its container */
+            max-width: 80%; /* Adjust the width of the image as needed */
             margin-top: 20px; /* Add margin to separate from the paragraph */
         }
     </style>
 </head>
 <body>
-    <!-- <h1>Response</h1> -->
-    <p>{{ response }}</p>
-    <!-- Add an image tag to display the response image -->
-    {% if response == 'Love' %}
-    <img src="/static/love.jpg" alt="Love Image">
-    {% elif response == 'Money' %}
-    <img src="/static/money.jpg" alt="Money Image">
-    {% elif response == 'Adventure' %}
-    <img src="/static/adventure.jpg" alt="Adventure Image">
-    {% elif response == 'Sex' %}
-    <img src="/static/sex.jpg" alt="Sex Image">
-    {% elif response == 'Dreams' %}
-    <img src="/static/dreams.jpg" alt="Dreams Image">
-    {% elif response == 'Sleep' %}
-    <img src="/static/sleep.jpg" alt="Sleep Image">
-    {% endif %}
-    <p>Okay, let's see how lucky you are today.</p>
-    <form action="/guess" method="post">
-        <!-- Add an input field to enter the guess -->
-        <label for="guess">Enter your guess (between 1 and 100):</label>
-        <input type="number" id="guess" name="guess" min="1" max="100">
-        <button type="submit">Submit Guess</button>
-    </form>
+    <div class="banner">
+        Please Enter a Choice
+    </div>
+    <img src="{{url_for('static', filename='bbjkt.jpg')}}" />
+    <div class="button-container">
+        <a href="/" class="back-button">Go Back</a>
+    </div>
 </body>
 </html>
