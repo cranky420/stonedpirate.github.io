@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Guessing Game</title>
+    <title>Response</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #333; /* Dark background color */
+            color: #fff; /* Text color */
             text-align: center;
             margin: 0;
             padding: 0;
@@ -18,23 +19,25 @@
             align-items: center;
         }
         h1 {
-            color: #333;
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
         p {
-            color: #666;
             font-size: 1.2rem;
             margin-bottom: 20px;
         }
-        form {
-            margin-top: 20px;
+        label {
+            display: block;
+            color: #ccc; /* Label text color */
+            margin-bottom: 10px;
         }
         input[type="number"] {
             padding: 10px;
             font-size: 1.2rem;
             border: 2px solid #ccc;
             border-radius: 5px;
+            background-color: #444; /* Input background color */
+            color: #fff; /* Input text color */
         }
         button {
             padding: 10px 20px;
@@ -49,15 +52,35 @@
         button:hover {
             background-color: #0056b3;
         }
+        img {
+            max-width: 100%; /* Ensure the image fits within its container */
+            margin-top: 20px; /* Add margin to separate from the paragraph */
+        }
     </style>
 </head>
 <body>
-    <h1>Guess the Number!</h1>
+    <!-- <h1>Response</h1> -->
+    <p>{{ response }}</p>
+    <!-- Add an image tag to display the response image -->
+    {% if response == 'Love' %}
+    <img src="/static/images/love.jpg" alt="Love Image">
+    {% elif response == 'Money' %}
+    <img src="/static/images/money.jpg" alt="Money Image">
+    {% elif response == 'Adventure' %}
+    <img src="/static/images/adventure.jpg" alt="Adventure Image">
+    {% elif response == 'Sex' %}
+    <img src="/static/images/sex.jpg" alt="Sex Image">
+    {% elif response == 'Dreams' %}
+    <img src="/static/images/dreams.jpg" alt="Dreams Image">
+    {% elif response == 'Sleep' %}
+    <img src="/static/images/sleep.jpg" alt="Sleep Image">
+    {% endif %}
+    <p>Okay, let's see how lucky you are today.</p>
     <form action="/guess" method="post">
+        <!-- Add an input field to enter the guess -->
         <label for="guess">Enter your guess (between 1 and 100):</label>
         <input type="number" id="guess" name="guess" min="1" max="100">
         <button type="submit">Submit Guess</button>
     </form>
-    <p>Number of Visits: {{ visits_count }}</p>
 </body>
 </html>

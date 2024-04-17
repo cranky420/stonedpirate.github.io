@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Questions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #333; /* Change the background color to dark */
+            color: #fff; /* Change text color to white */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .options {
+            background-color: #444; /* Add background color for the box */
+            padding: 20px; /* Add padding inside the box */
+            border-radius: 10px; /* Add rounded corners */
+            margin-bottom: 20px; /* Add spacing between box and button */
+        }
+        label {
+            display: block; /* Ensure labels are displayed on separate lines */
+            margin-bottom: 10px; /* Add spacing between radio buttons */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hola! Got a question for you</h1>
+    <form action="/play" method="post">
+        <p>What is life according to you?</p>
+        <div class="options">
+            <label><input type="radio" name="answer" value="love"> Love</label><br>
+            <label><input type="radio" name="answer" value="money"> Money</label><br>
+            <label><input type="radio" name="answer" value="adventure"> Adventure</label><br>
+            <label><input type="radio" name="answer" value="sex"> Sex</label><br>
+            <label><input type="radio" name="answer" value="dreams"> Dreams</label><br>
+            <label><input type="radio" name="answer" value="sleep"> Sleep</label><br>
+        </div>
+        <button type="submit">Submit Answer</button>
+    </form>
+    <p>Number of Visits: {{ visits_count }}</p>
+</body>
+</html>
